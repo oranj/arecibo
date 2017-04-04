@@ -24,12 +24,12 @@ $arecibo = new Arecibo(new MacOSSystem, $assetLoader, $assetStorage );
 
 $arecibo->setMinimumSize( 1440, 900 );
 
-// $arecibo->addSource( new Unsplash( '@nasa', $assetLoader ));
+$arecibo->addSource( new Unsplash( '@nasa', $assetLoader ));
 $arecibo->addSource( new Wallhaven( $assetLoader ));
-// $arecibo->addSource( new Reddit( '/r/SpacePorn', $assetLoader ));
-// $arecibo->addSource( new Reddit( '/r/EarthPorn', $assetLoader ));
-// $arecibo->addSource( new Reddit( '/r/AlbumArtPorn', $assetLoader ));
-// $arecibo->addSource( new Reddit( '/r/SkyPorn', $assetLoader ));
-// $arecibo->addSource( new Reddit( '/r/redwall', $assetLoader ));
+$arecibo->addSource( new Reddit( '/r/SpacePorn', $assetLoader ));
+$arecibo->addSource( new Reddit( '/r/EarthPorn', $assetLoader ));
+$arecibo->addSource( new Reddit( '/r/AlbumArtPorn', $assetLoader ));
+$arecibo->addSource( new Reddit( '/r/SkyPorn', $assetLoader ));
+$arecibo->addSource( new Reddit( '/r/redwall', $assetLoader ));
 
 $arecibo->runOnTimer( 60 );
