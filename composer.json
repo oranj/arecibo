@@ -1,0 +1,19 @@
+{
+    "name": "oranj/sweetlove",
+    "description": "Grabs photos and cycles",
+    "authors": [
+        {
+            "name": "Ray Minge",
+            "email": "ray@rayminge.com"
+        }
+    ],
+    "require": {
+    	"bellows/autoload": "dev-master"
+    },
+    "repositories": [
+    	{
+    		"type" : "vcs",
+    		"url"  : "git@github.com:bellows-io/autoload.git"
+    	}
+    ]
+}

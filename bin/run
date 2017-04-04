@@ -1,0 +1,35 @@
+#! /usr/local/bin/php
+<?php
+
+include __DIR__."/bootstrap.php";
+
+use Arecibo\AssetStorage\AssetStorage;
+use Arecibo\AssetLoader\CachingVirtualProxy;
+use Arecibo\AssetLoader\AssetLoader;
+use Arecibo\Cache\AssetStorageCache;
+use Arecibo\Sources\Reddit\Reddit;
+use Arecibo\Sources\Wallhaven\Wallhaven;
+use Arecibo\System\MacOS\MacOSSystem;
+use Arecibo\Sources\Unsplash\Unsplash;
+use Arecibo\Arecibo;
+
+$assetStorage = new AssetStorage(dirname(__DIR__).'/.cache');
+
+$assetLoader = new CachingVirtualProxy(
+	new AssetStorageCache( $assetStorage, 3600 ),
+	new AssetLoader
+);
+
+$arecibo = new Arecibo(new MacOSSystem, $assetLoader, $assetStorage );
+
+$arecibo->setMinimumSize( 1440, 900 );
+
+// $arecibo->addSource( new Unsplash( '@nasa', $assetLoader ));
+$arecibo->addSource( new Wallhaven( $assetLoader ));
+// $arecibo->addSource( new Reddit( '/r/SpacePorn', $assetLoader ));
+// $arecibo->addSource( new Reddit( '/r/EarthPorn', $assetLoader ));
+// $arecibo->addSource( new Reddit( '/r/AlbumArtPorn', $assetLoader ));
+// $arecibo->addSource( new Reddit( '/r/SkyPorn', $assetLoader ));
+// $arecibo->addSource( new Reddit( '/r/redwall', $assetLoader ));
+
+$arecibo->runOnTimer( 60 );

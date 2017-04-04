@@ -1,0 +1,81 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "922aa35ccc021071a5cdd355b9783180",
+    "packages": [
+        {
+            "name": "bellows/autoload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bellows-io/Autoload.git",
+                "reference": "a07e8ef4f75c357b2a5e182fc187a5269ce32093"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bellows-io/Autoload/zipball/a07e8ef4f75c357b2a5e182fc187a5269ce32093",
+                "reference": "a07e8ef4f75c357b2a5e182fc187a5269ce32093",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Autoload\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Provides PSR-0 and PSR-4 Autoloaders",
+            "support": {
+                "source": "https://github.com/bellows-io/Autoload/tree/master",
+                "issues": "https://github.com/bellows-io/Autoload/issues"
+            },
+            "time": "2015-01-29 10:35:08"
+        },
+        {
+            "name": "bellows/http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bellows-io/Http.git",
+                "reference": "86a5360bb723ee5e18b545edfea04a0edfca4d33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bellows-io/Http/zipball/86a5360bb723ee5e18b545edfea04a0edfca4d33",
+                "reference": "86a5360bb723ee5e18b545edfea04a0edfca4d33",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Http\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "basic HTTP methods n stuff",
+            "support": {
+                "source": "https://github.com/bellows-io/Http/tree/master",
+                "issues": "https://github.com/bellows-io/Http/issues"
+            },
+            "time": "2015-01-29 10:19:19"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "bellows/autoload": 20,
+        "bellows/http": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
