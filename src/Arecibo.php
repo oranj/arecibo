@@ -7,6 +7,7 @@ use Arecibo\System\SystemInterface;
 use Arecibo\AssetLoader\AssetLoaderInterface;
 use Arecibo\AssetStorage\AssetStorageInterface;
 use Arecibo\Wallpaper\Wallpaper;
+use Arecibo\Wallpaper\WallpaperInterface;
 
 class Arecibo {
 
@@ -55,15 +56,18 @@ class Arecibo {
 		return $wallpapers[ array_rand( $wallpapers )];
 	}
 
+	protected function storeWallpaper( WallpaperInterface $wallpaper ) {
+		$key = md5( $wallpaper->getSourceUrl() );
+		if ( ! $this->assetStorage->exists( $key )) {
+			$this->assetStorage->write( $key, $wallpaper->getContents() );
+		}
+		return $this->assetStorage->fullPath( $key );
+	}
+
 	public function setRandomWallpaper() {
 		$wallpaper = $this->getRandomWallpaper();
-		$path      = $wallpaper->getPath();
-		$key       = md5( $path );
-		if ( ! $this->assetStorage->exists( $key )) {
-			$this->assetStorage->write( $key, $this->assetLoader->loadAsset( $path ));
-		}
+		$path = $this->storeWallpaper( $wallpaper );
 
-		$path = $this->assetStorage->fullPath( $key );
 		list ($width, $height) = getimagesize( $path );
 
 		if ( $width < $this->minimumWidth || $height < $this->minimumHeight ) {

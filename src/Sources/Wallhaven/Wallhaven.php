@@ -5,7 +5,7 @@ namespace Arecibo\Sources\Wallhaven;
 use Arecibo\Sources\SourceInterface;
 use Arecibo\AssetLoader\AssetLoaderInterface;
 use Arecibo\Wallpaper\WallpaperInterface;
-use Arecibo\Wallpaper\Wallpaper;
+use Arecibo\Wallpaper\RemoteWallpaper;
 
 class Wallhaven implements SourceInterface {
 
@@ -39,10 +39,9 @@ class Wallhaven implements SourceInterface {
 		}, $matches[1]);
 
 		$images = array_values(array_unique( $images ));
-
 		$output = [];
 		foreach ( $images as $image ) {
-			$output[] = new Wallpaper( $image );
+			$output[] = new RemoteWallpaper( $image, $this->assetLoader );
 		}
 		return $output;
 	}

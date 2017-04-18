@@ -4,6 +4,7 @@ namespace Arecibo\Wallpaper;
 
 interface WallpaperInterface {
 
-	public function getPath();
+	public function getContents();
+	public function getSourceUrl();
 
 }

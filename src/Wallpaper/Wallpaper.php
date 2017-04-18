@@ -5,22 +5,29 @@ namespace Arecibo\Wallpaper;
 class Wallpaper implements WallpaperInterface {
 
 	/** @var string */
-	protected $path;
+	protected $contents;
+
+	/** @var string */
+	protected $sourceUrl;
 
 	/**
-	 * An object containing a path to an image on the internet
-	 * @param string $path
+	 * An object containing a contents to an image on the internet
+	 * @param string $contents
 	 */
-	public function __construct( $path ) {
-		$this->path = $path;
+	public function __construct( $sourceUrl, $contents ) {
+		$this->sourceUrl = $sourceUrl;
+		$this->contents = $contents;
 	}
 
 	/**
-	 * Gets the local path of the wallpaper
+	 * Gets the local contents of the wallpaper
 	 * @return string
 	 */
-	public function getPath() {
-		return $this->path;
+	public function getContents() {
+		return $this->contents;
 	}
 
+	public function getSourceUrl() {
+		return $this->sourceUrl;
+	}
 }
