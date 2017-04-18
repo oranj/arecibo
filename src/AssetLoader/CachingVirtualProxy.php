@@ -23,7 +23,7 @@ class CachingVirtualProxy implements AssetLoaderInterface {
 	 */
 	public function loadAsset( $path ) {
 		$key = md5( $path );
-		if ( ! $this->cache->has( $key )) {
+		if ( ! $this->cache->has( $key ) || ! $this->cache->get( $key )) {
 			$contents = $this->proxy->loadAsset( $path );
 			$this->cache->set( $key, $contents );
 		}
