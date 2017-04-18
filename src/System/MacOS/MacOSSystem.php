@@ -13,7 +13,7 @@ class MacOSSystem implements SystemInterface {
 		$this->cmdPath = realpath( __DIR__ . '/set_bg_cmd.scpt' );
 	}
 
-	public function setWallpaper( WallpaperInterface $wallpaper ) {
-		exec('osascript "'.addslashes( $this->cmdPath ).'" "'. addslashes( $wallpaper->getPath() ).'"');
+	public function setWallpaper( $path ) {
+		exec('osascript "'.addslashes( $this->cmdPath ).'" "'. addslashes( $path ).'"');
 	}
 }

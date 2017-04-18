@@ -70,7 +70,7 @@ class Arecibo {
 			throw new \Exception("Image too small.");
 		}
 
-		$this->system->setWallpaper( new Wallpaper( $this->assetStorage->fullPath( $key )));
+		$this->system->setWallpaper( $path );
 	}
 
 	public function runOnTimer( $seconds ) {

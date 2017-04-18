@@ -6,6 +6,6 @@ use Arecibo\Wallpaper\WallpaperInterface;
 
 interface SystemInterface {
 
-	public function setWallpaper( WallpaperInterface $wallpaper );
+	public function setWallpaper( $path );
 
 }
