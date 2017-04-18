@@ -11,6 +11,7 @@ use Arecibo\Sources\Reddit\Reddit;
 use Arecibo\Sources\Wallhaven\Wallhaven;
 use Arecibo\System\MacOS\MacOSSystem;
 use Arecibo\Sources\Unsplash\Unsplash;
+use Arecibo\Sources\EarthView\EarthView;
 use Arecibo\Arecibo;
 
 $assetStorage = new AssetStorage(dirname(__DIR__).'/.cache');
@@ -31,5 +32,6 @@ $arecibo->addSource( new Reddit( '/r/EarthPorn', $assetLoader ));
 $arecibo->addSource( new Reddit( '/r/AlbumArtPorn', $assetLoader ));
 $arecibo->addSource( new Reddit( '/r/SkyPorn', $assetLoader ));
 $arecibo->addSource( new Reddit( '/r/redwall', $assetLoader ));
+$arecibo->addSource( new EarthView( $assetLoader ));
 
 $arecibo->runOnTimer( 60 );
